@@ -11,6 +11,7 @@ namespace DND_DiceRoller_App
     {
         static void Main(string[] args)
         {
+            //Roll is a static method
             Console.WriteLine(DiceRoller.RollD20());
             Console.ReadKey();
         }   
