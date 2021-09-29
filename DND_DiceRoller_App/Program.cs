@@ -14,7 +14,6 @@ namespace DND_DiceRoller_App
         {
             Greeting();
             MainGameplayLoop();
-
         }
 
         private static void MainGameplayLoop()
@@ -37,14 +36,13 @@ namespace DND_DiceRoller_App
                     while (userInput.Key == ConsoleKey.R)
                     {
                         Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
-                        userInput = Console.ReadKey(true); 
+                        userInput = Console.ReadKey(true);
                     }
                 }
                 else
                 {
                     break;
                 }
-                   
 
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
