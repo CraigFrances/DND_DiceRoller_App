@@ -21,7 +21,7 @@ namespace DND_DiceRoller_App
             do
             {
                 DiceSelection();
-                Console.WriteLine();
+                WhiteSpace();
                 string diceSelection = UserDiceSelection();
                 Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
                 Console.WriteLine("Press Enter to roll a new dice, the R key to roll the same dice again, or Escape to Quit.");
@@ -64,6 +64,11 @@ namespace DND_DiceRoller_App
             Console.WriteLine("Greetings, Welcome to the dice roller.");
         }
 
+        private static void WhiteSpace()
+        {
+            Console.WriteLine();
+        }
+        
         private static int DiceRoll(string diceSelection)
         {
             int roll = 0;
