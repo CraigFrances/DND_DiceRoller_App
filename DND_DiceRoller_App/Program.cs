@@ -24,11 +24,13 @@ namespace DND_DiceRoller_App
                 WhiteSpace();
                 string diceSelection = UserDiceSelection();
                 Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
-                Console.WriteLine("Press Enter to roll a new dice, the R key to roll the same dice again, or Escape to Quit.");
+                Console.WriteLine("Press Enter to roll a new dice, the R key to roll the same dice again, or any other key to quit.");
                 var userInput = Console.ReadKey(true);
+                WhiteSpace();
 
                 if (userInput.Key == ConsoleKey.Enter)
                 {
+                    WhiteSpace();
                     MainGameplayLoop();
                 }
                 else if (userInput.Key == ConsoleKey.R)
@@ -37,6 +39,7 @@ namespace DND_DiceRoller_App
                     {
                         Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
                         userInput = Console.ReadKey(true);
+                        WhiteSpace();
                     }
                 }
                 else
@@ -91,6 +94,10 @@ namespace DND_DiceRoller_App
                     break;
                 case "D20":
                     roll = DiceRoller.RollD20();
+                    if (roll == 20)
+                    {
+                        Console.WriteLine("Critical hit!!");
+                    }
                     break;
 
             }
