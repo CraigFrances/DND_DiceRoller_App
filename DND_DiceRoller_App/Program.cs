@@ -9,7 +9,7 @@ namespace DND_DiceRoller_App
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             Greeting();
@@ -71,7 +71,7 @@ namespace DND_DiceRoller_App
         {
             Console.WriteLine();
         }
-        
+
         private static int DiceRoll(string diceSelection)
         {
             int roll = 0;
@@ -106,5 +106,5 @@ namespace DND_DiceRoller_App
     }
 
 
-    
+
 }
