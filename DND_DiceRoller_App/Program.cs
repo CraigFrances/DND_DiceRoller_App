@@ -12,18 +12,33 @@ namespace DND_DiceRoller_App
         
         static void Main(string[] args)
         {
-           
+            Greeting();
+            DiceSelection();
+            UserRollOutput();
+            
+            Console.ReadKey();
+        }
 
-            //Make into method
-            Console.WriteLine("Greetings, Welcome to the dice roller.");
-            //Method
+        private static void UserRollOutput()
+        {
+            string diceSelection = UserDiceSelection();
+            Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
+        }
+        private static string UserDiceSelection()
+        {
+            return Console.ReadLine().ToUpper();
+        }
+
+        private static void DiceSelection()
+        {
             Console.WriteLine("Which dice do you want to roll?");
             Console.WriteLine("Your choices are: D4, D6, D8, D10, D12, D20");
             Console.Write("Type your selection: ");
+        }
 
-            var diceSelection = Console.ReadLine().ToUpper();
-            Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
-            Console.ReadKey();
+        private static void Greeting()
+        {
+            Console.WriteLine("Greetings, Welcome to the dice roller.");
         }
 
         private static int DiceRoll(string diceSelection)
