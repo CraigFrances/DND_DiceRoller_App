@@ -14,14 +14,6 @@ namespace DND_DiceRoller_App
         {
             Greeting();
             MainGameplayLoop();
-            if (Console.ReadKey().Key == ConsoleKey.Enter)
-            {
-                MainGameplayLoop();
-            }
-            else
-            {
-                Console.WriteLine("Press Enter to roll again, or Escape to Quit.");
-            }
 
         }
 
@@ -31,16 +23,32 @@ namespace DND_DiceRoller_App
             {
                 DiceSelection();
                 Console.WriteLine();
-                UserRollOutput();
-                Console.WriteLine("Press Enter to roll again, or Escape to Quit.");
+                string diceSelection = UserDiceSelection();
+                Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
+                Console.WriteLine("Press Enter to roll a new dice, the R key to roll the same dice again, or Escape to Quit.");
+                var userInput = Console.ReadKey(true);
+
+                if (userInput.Key == ConsoleKey.Enter)
+                {
+                    MainGameplayLoop();
+                }
+                else if (userInput.Key == ConsoleKey.R)
+                {
+                    while (userInput.Key == ConsoleKey.R)
+                    {
+                        Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
+                        userInput = Console.ReadKey(true); 
+                    }
+                }
+                else
+                {
+                    break;
+                }
+                   
+
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
 
-        private static void UserRollOutput()
-        {
-            string diceSelection = UserDiceSelection();
-            Console.WriteLine($"Your Roll: {DiceRoll(diceSelection)}");
-        }
         private static string UserDiceSelection()
         {
             return Console.ReadLine().ToUpper();
