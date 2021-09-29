@@ -13,10 +13,27 @@ namespace DND_DiceRoller_App
         static void Main(string[] args)
         {
             Greeting();
-            DiceSelection();
-            UserRollOutput();
-            
-            Console.ReadKey();
+            MainGameplayLoop();
+            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            {
+                MainGameplayLoop();
+            }
+            else
+            {
+                Console.WriteLine("Press Enter to roll again, or Escape to Quit.");
+            }
+
+        }
+
+        private static void MainGameplayLoop()
+        {
+            do
+            {
+                DiceSelection();
+                Console.WriteLine();
+                UserRollOutput();
+                Console.WriteLine("Press Enter to roll again, or Escape to Quit.");
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
 
         private static void UserRollOutput()
